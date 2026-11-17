@@ -1,11 +1,13 @@
 /home/aldrey-sandre/Documents/GitHub/refatoracao-es2-maven/src/main/java/br/ufpa/refactoring/q7/SupportChat.java
+/home/aldrey-sandre/Documents/GitHub/refatoracao-es2-maven/src/main/java/br/ufpa/refactoring/q8/ContactInfo.java
 /home/aldrey-sandre/Documents/GitHub/refatoracao-es2-maven/src/main/java/br/ufpa/refactoring/q6/BillingService.java
 /home/aldrey-sandre/Documents/GitHub/refatoracao-es2-maven/src/main/java/br/ufpa/refactoring/q5/PasswordResetNotification.java
-/home/aldrey-sandre/Documents/GitHub/refatoracao-es2-maven/src/main/java/br/ufpa/refactoring/q1/PurchaseEmailService.java
 /home/aldrey-sandre/Documents/GitHub/refatoracao-es2-maven/src/main/java/br/ufpa/refactoring/q8/StudentRegistration.java
 /home/aldrey-sandre/Documents/GitHub/refatoracao-es2-maven/src/main/java/br/ufpa/refactoring/q10/RoomBooking.java
-/home/aldrey-sandre/Documents/GitHub/refatoracao-es2-maven/src/main/java/br/ufpa/refactoring/q5/Notification.java
-/home/aldrey-sandre/Documents/GitHub/refatoracao-es2-maven/src/main/java/br/ufpa/refactoring/q3/PayrollCalculator.java
-/home/aldrey-sandre/Documents/GitHub/refatoracao-es2-maven/src/main/java/br/ufpa/refactoring/q2/PasswordPolicy.java
 /home/aldrey-sandre/Documents/GitHub/refatoracao-es2-maven/src/main/java/br/ufpa/refactoring/q9/Order.java
 /home/aldrey-sandre/Documents/GitHub/refatoracao-es2-maven/src/main/java/br/ufpa/refactoring/q4/RecentFiles.java
+/home/aldrey-sandre/Documents/GitHub/refatoracao-es2-maven/src/main/java/br/ufpa/refactoring/q1/PurchaseEmailService.java
+/home/aldrey-sandre/Documents/GitHub/refatoracao-es2-maven/src/main/java/br/ufpa/refactoring/q5/Notification.java
+/home/aldrey-sandre/Documents/GitHub/refatoracao-es2-maven/src/main/java/br/ufpa/refactoring/q8/Address.java
+/home/aldrey-sandre/Documents/GitHub/refatoracao-es2-maven/src/main/java/br/ufpa/refactoring/q3/PayrollCalculator.java
+/home/aldrey-sandre/Documents/GitHub/refatoracao-es2-maven/src/main/java/br/ufpa/refactoring/q2/PasswordPolicy.java

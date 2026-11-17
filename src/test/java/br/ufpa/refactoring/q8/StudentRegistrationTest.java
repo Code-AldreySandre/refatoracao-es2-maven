@@ -23,6 +23,9 @@ class StudentRegistrationTest {
 
     @Test
     void refactorGoal_extractClass_contactAndAddress() {
-        // TODO: extrair ContactInfo/Address e mover validações/format mantendo testes.
+        assertFalse(new StudentRegistration("  ", "n@x.com", "9199999999", "Belém", "66000-000").isValid());
+        assertFalse(new StudentRegistration("Juremilda", "nx.com", "9199999999", "Belém", "66000-000").isValid());
+        assertFalse(new StudentRegistration("Juremilda", "n@x.com", "9199999", "Belém", "66000-000").isValid());
+        assertFalse(new StudentRegistration("Juremilda", "n@x.com", "9199999999", "Belém", null).isValid());
     }
 }
