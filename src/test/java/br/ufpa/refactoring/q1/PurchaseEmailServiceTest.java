@@ -1,35 +1,41 @@
 package br.ufpa.refactoring.q1;
 
+import br.ufpa.refactoring.q1.PurchaseEmailService.*;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDate;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class PurchaseEmailServiceTest {
 
     @Test
-    void buildEmail_shouldKeepSameOutputAfterRefactor() {
-        // TODO: complete asserts para garantir que o texto final não muda após refatorar
-        PurchaseEmailService svc = new PurchaseEmailService();
-
-        var purchase = new PurchaseEmailService.Purchase(
-                "123",
-                "Victor",
-                List.of(
-                        new PurchaseEmailService.PurchaseItem("Caderno", 2, 15.0),
-                        new PurchaseEmailService.PurchaseItem("Caneta", 3, 3.5)
-                ),
-                false,
-                "VIP-20",
-                new PurchaseEmailService.Address("Rua A", "10", "Belém", "66000-000")
+    void shouldBuildCompleteEmailWithDiscountsAndExpressShipping() {
+        PurchaseEmailService service = new PurchaseEmailService();
+        Address address = new Address("Av. Augusto Corrêa", "01", "Belém", "66075-110");
+        List<PurchaseItem> items = List.of(
+                new PurchaseItem("Notebook", 1, 300.00),
+                new PurchaseItem("Mouse", 2, 50.00)
         );
+        Purchase purchase = new Purchase("123", "Maria", items, true, "VIP10", address);
 
-        String email = svc.buildEmail(purchase);
+        String result = service.buildEmail(purchase);
 
-        assertTrue(email.contains("Olá, Victor"));
-        assertTrue(email.contains("Seu pedido #123"));
-        assertTrue(email.contains("Caderno"));
-        assertTrue(email.contains("Endereço de entrega"));
+        String expected = "Olá, Maria!\n\n" +
+                "Seu pedido #123 foi confirmado em " + LocalDate.now() + ".\n\n" +
+                "Itens:\n" +
+                "- Notebook (1x) : R$ " + String.format("%.2f", 300.00) + "\n" +
+                "- Mouse (2x) : R$ " + String.format("%.2f", 100.00) + "\n" +
+                "\nSubtotal: R$ " + String.format("%.2f", 400.00) + "\n" +
+                "Frete: R$ " + String.format("%.2f", 29.90) + "\n" +
+                "Descontos: R$ " + String.format("%.2f", 60.00) + "\n" +
+                "TOTAL: R$ " + String.format("%.2f", 369.90) + "\n\n" +
+                "Endereço de entrega:\n" +
+                "Av. Augusto Corrêa, 01\n" +
+                "Belém - 66075-110\n\n" +
+                "Obrigado por comprar com a gente!\n";
+
+        assertEquals(expected, result);
     }
 }
