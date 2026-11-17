@@ -10,11 +10,14 @@ class PasswordPolicyTest {
     void validPassword_examples() {
         PasswordPolicy policy = new PasswordPolicy();
         assertTrue(policy.isValid("SenhaForte1"));
+        assertTrue(policy.isValid("Abcdefgh12")); // exatamente 10 caracteres
     }
 
     @Test
     void invalidPassword_examples() {
         PasswordPolicy policy = new PasswordPolicy();
+        assertFalse(policy.isValid(null));            // nulo
+        assertFalse(policy.isValid(""));              // vazia
         assertFalse(policy.isValid("curta1A"));       // < 10
         assertFalse(policy.isValid("senhaforte1"));   // sem maiúscula
         assertFalse(policy.isValid("SenhaForteX"));   // sem dígito
@@ -23,7 +26,8 @@ class PasswordPolicyTest {
 
     @Test
     void refactorGoal_inlineSomeHelpers() {
-        // TODO: após refatorar, alguns helpers devem sumir (inline)
-        // Este teste não verifica estrutura, só comportamento.
+        PasswordPolicy policy = new PasswordPolicy();
+        assertTrue(policy.isValid("Valida1234"));
+        assertFalse(policy.isValid("Invalida 123"));
     }
 }
