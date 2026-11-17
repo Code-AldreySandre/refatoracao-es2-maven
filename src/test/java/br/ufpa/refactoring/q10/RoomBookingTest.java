@@ -17,7 +17,6 @@ class RoomBookingTest {
 
     @Test
     void refactorGoal_introduceParameterObject() {
-        // TODO: introduzir BookingRequest/Room/Schedule e reduzir parâmetros primitivos.
-        // Ajuste as chamadas acima se necessário, mantendo os valores esperados.
+        
     }
 }
