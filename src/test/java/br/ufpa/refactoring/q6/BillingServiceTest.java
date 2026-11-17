@@ -21,7 +21,13 @@ class BillingServiceTest {
 
     @Test
     void refactorGoal_replaceConditionalWithPolymorphism() {
-        // TODO: após refatorar, o switch deve desaparecer (cada plano com sua política).
-        // Testes acima devem continuar passando.
+        BillingService svc = new BillingService();
+
+        assertEquals(0.0, svc.monthlyPrice(BillingService.Plan.FREE, 50, true), 0.001);
+        assertEquals(19.90 + 59.90, svc.monthlyPrice(BillingService.Plan.STUDENT, 5, true), 0.01);
+
+        double expectedProWithSupport = Math.round(((49.90 + 250 * 1.25 + 59.90) * 0.95) * 100.0) / 100.0;
+        assertEquals(expectedProWithSupport, svc.monthlyPrice(BillingService.Plan.PRO, 250, true), 0.01);
+        assertEquals(199.90 + 100 * 0.90, svc.monthlyPrice(BillingService.Plan.ENTERPRISE, 100, false), 0.01);
     }
 }
