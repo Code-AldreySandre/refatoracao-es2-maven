@@ -2,6 +2,8 @@ package br.ufpa.refactoring.q4;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class RecentFilesTest {
@@ -22,7 +24,23 @@ class RecentFilesTest {
     }
 
     @Test
+    void addFile_existingFile_shouldMoveToTopWithoutDuplicating() {
+        RecentFiles rf = new RecentFiles(3);
+
+        rf.addFile("/a");
+        rf.addFile("/b");
+        rf.addFile("/c");
+        rf.addFile("/a");
+
+        assertEquals(3, rf.size());
+        assertEquals("/a", rf.get(0));
+        assertEquals("/c", rf.get(1));
+        assertEquals("/b", rf.get(2));
+    }
+
+    @Test
     void refactorGoal_replaceInheritanceWithDelegation() {
-        // TODO: após refatorar, RecentFiles NÃO deve estender ArrayList (verificar em code review).
+        RecentFiles rf = new RecentFiles(2);
+        assertFalse(rf instanceof List);
     }
 }
