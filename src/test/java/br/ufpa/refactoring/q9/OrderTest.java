@@ -19,6 +19,13 @@ class OrderTest {
 
     @Test
     void refactorGoal_moveDiscountLogic_toCustomerOrPolicy() {
-        // TODO: mover lógica de desconto para Customer ou um DiscountPolicy e fazer Order delegar.
+        var loyalRegular = new Order.Customer(false, 5);
+        assertEquals(165.0, new Order(loyalRegular, 200.0, 0.10).finalTotal(), 0.001);
+
+        var newVip = new Order.Customer(true, 2);
+        assertEquals(155.0, new Order(newVip, 200.0, 0.10).finalTotal(), 0.001);
+
+        var smallOrderVip = new Order.Customer(true, 6);
+        assertEquals(0.0, new Order(smallOrderVip, 30.0, 0.10).finalTotal(), 0.001);
     }
 }
